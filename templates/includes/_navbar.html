@@ -1,0 +1,46 @@
+{% load static %}
+
+<!-- Navbar -->
+{% if user.is_authenticated %}
+<nav class="navbar">
+    <div class="container">
+        <a href="" class="navbar-brand"><img class="logo" src="{% static 'img/netflix_logo.png' %}" alt=""></a>
+        <form action="{% url 'movies' %}" class="d-flex" role="search">
+            <input class="form-control me-2 bg-transparent text-white" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-danger" type="submit">Search</button>
+        </form>
+        <form class="d-flex" action="">
+            <div class="dropdown">
+                <a href="/" class="btn text-white dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <span><img src="{% static 'img/world.png' %}" alt="">Türkçe</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a href="" class="dropdown-item">Türkçe</a></li>
+                <li><a href="" class="dropdown-item">İngilizce</a></li>
+            </ul>
+            </div>
+            <a href="{% url 'profiles' %}" class="btn btn-danger mx-3 me-2" role="button">{{request.user}}</a>
+        </form>
+    </div>
+</nav>
+{% else %}
+ <nav class="navbar">
+    <div class="container">
+        <a href="/" class="navbar-brand"><img class="logo" src="{% static 'img/netflix_logo.png' %}" alt=""></a>
+        <form class="d-flex" action="">
+            <div class="dropdown">
+                <a href="" class="btn text-white dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <span><img src="{% static 'img/world.png' %}" alt="">Türkçe</span>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a href="" class="dropdown-item">Türkçe</a></li>
+                <li><a href="" class="dropdown-item">İngilizce</a></li>
+            </ul>
+            </div>
+            <a href="{% url 'login' %}" class="btn btn-danger mx-3" role="button">Oturum Aç</a>
+        </form>
+    </div>
+</nav>
+{% endif %}

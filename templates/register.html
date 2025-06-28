@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+          <form action="" method="POST" enctype="multipart/form-data" class="w-50 m-auto border text-light mt-4 p-3">
+            {% csrf_token %}
+            {% comment %} {{form}} {% endcomment %}
+            
+            <label for="">İsim</label>
+            <input type="text" name="isim" class="form-control">
+
+            <label for="">Soyisim</label>
+            <input type="text" name="soyisim" class="form-control">
+
+            <label for="">Email</label>
+            <input type="email" name="email" class="form-control">
+
+            <label for="">Fotoğraf</label>
+            <input type="file" name="resim" class="form-control">
+
+            <label for="">Telefon Numarası</label>
+            <input type="tel" name="tel" class="form-control">
+
+            <label for="">Doğum Tarihi</label>
+            <input type="date" name="dogum" class="form-control">
+
+            <label for="">Şifre</label>
+            <input type="password" name="sifre1" class="form-control">
+
+            <label for="">Şifre Onayı</label>
+            <input type="password" name="sifre2" class="form-control">
+
+            <input type="submit" value="Kayıt Ol" class="btn btn-danger mt-3">
+          </form>
+    </div>
+{% endblock content %}
